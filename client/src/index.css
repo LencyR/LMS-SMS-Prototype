@@ -15,8 +15,8 @@
   grid-template-columns: 3fr 1fr;
   gap: 100px;
   position: relative;
-  min-height: 100vh;
-  top: 0;
+  min-height: calc(100vh - 70px);
+  top: 70px;
   left: 80px;
   transition: all 0.5s ease;
   width: calc(100% - 80px);
@@ -39,10 +39,15 @@
 
 .navbar {
     background-color: #060b26;
+    outline: none;
     height: 70px;
     display: flex;
+    flex-wrap: nowrap;
     justify-content: start;
     align-items: center;
+    width: 100%;
+    z-index: 3;
+    position: fixed;
 }
   
 .menu-bars {
@@ -105,14 +110,15 @@
 
 .nav-menu {
     background-color: #060b26;
-    width: 250px;
-    height: 100vh;
+    width: 220px;
+    height: 100%;
     display: flex;
     justify-content: center;
     position: fixed;
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 2;
 }
   
 .nav-menu.active {
@@ -196,23 +202,14 @@ span {
 
 .website-name {
     position: relative;
-    min-height: 10vh;
-    top: 10px;
     left: 15px;
-    transition: all 0.5s ease;
-    width: calc(100% - 80px);
     padding: 1rem;
     color: white;
 }
 
 .nav-menu.active ~ .home {
-    left: 250px;
-    width: calc(100% - 250px);
-}
-
-.nav-menu.active ~ .website-name {
-    left: 250px;
-    width: calc(100% - 250px);
+    left: 220px;
+    width: calc(100% - 220px);
 }
 
 label, input {
@@ -245,4 +242,45 @@ div.error {
     color: red;
     border-radius: 4px;
     margin: 20px 0;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 900px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+    background-color: #009879;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th {
+    color: #f3f3f3;
+    padding: 12px 15px;
+}
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr:hover {
+    font-weight: bold;
+    color: #009879;
 }

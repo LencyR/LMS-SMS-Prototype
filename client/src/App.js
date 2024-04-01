@@ -9,7 +9,7 @@ import Courses from './pages/Courses';
 import Events from './pages/Events';
 import Grades from './pages/Grades'; 
 import Settings from './pages/Settings';
-import Tasks from './pages/Tasks'; 
+import Tasks from './pages/Tasks';
 
 function App() {
   return (

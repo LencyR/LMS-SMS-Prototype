@@ -1,4 +1,5 @@
 import { useStudentsContext } from '../hooks/useStudentsContext'
+import {FaTrash} from 'react-icons/fa'
 
 const StudentDetails = ({ student }) => {
     const { dispatch } = useStudentsContext()
@@ -15,15 +16,14 @@ const StudentDetails = ({ student }) => {
     }
 
     return (
-        <div className="student-details">
-            <h4>Student Details:</h4>
-            <p><strong>Name: </strong>{student.name}</p>
-            <p><strong>Age: </strong>{student.age}</p>
-            <p><strong>Email: </strong>{student.email}</p>
-            <p><strong>Address: </strong>{student.address}</p>
-            <p>{student.createdAt}</p>
-            <span onClick={handleClick}>delete</span>
-        </div>
+        <tr>
+            <td>{student.name}</td>
+            <td>{student.age}</td>
+            <td>{student.email}</td>
+            <td>{student.address}</td>
+            <td>{student.createdAt}</td>
+            <td><span className='delete-button' onClick={handleClick}><FaTrash style={{ position: 'relative', left: '-20px', bottom: '10px'}}/></span></td>
+        </tr>
     )
 }
 

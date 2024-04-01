@@ -23,9 +23,23 @@ function Home() {
   return (
     <div className='home'>
       <div className='students'>
-        {students && students.map((student) => (
-          <StudentDetails key={student._id} student={student} />
-        ))}
+        <table className='content-table'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Date Created</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {students && students.map((student) => (
+              <StudentDetails key={student._id} student={student} />
+            ))}
+          </tbody>
+        </table>
       </div>
       <StudentForm />
     </div>

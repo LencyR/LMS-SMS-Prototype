@@ -6,7 +6,7 @@ import '../index.css';
 import { IconContext } from 'react-icons';
 
 function Navbar() {
-    const [sidebar, setSidebar] = useState(false);
+    const [sidebar, setSidebar] = useState(true);
     const [dropdownActive, setDropdownActive] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     const showDropdown = () => setDropdownActive(!dropdownActive);
@@ -44,12 +44,7 @@ function Navbar() {
                     </div>
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                    <ul className='nav-menu-items' onClick={showSidebar}>
-                        <li className='navbar-toggle'>
-                            <Link to='#' className='menu-bars'>
-                                <FaIcons.FaBars />
-                            </Link>
-                        </li>
+                    <ul className='nav-menu-items' onClick={showSidebar} style={{ marginTop: '70px' }}>
                         {SidebarData.map((item, index) => {
                             return (
                                 <li key={index} className={item.cName}>
