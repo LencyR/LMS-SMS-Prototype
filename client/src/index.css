@@ -10,8 +10,12 @@
   font-family: 'Lato', sans-serif;
 }
 
+body {
+    background-color: #E7E7E7;
+}
+
 .home {
-  display: grid;
+  display: inline-block;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
   position: relative;
@@ -38,7 +42,7 @@
 }
 
 .navbar {
-    background-color: #060b26;
+    background-color: #1F3675;
     outline: none;
     height: 70px;
     display: flex;
@@ -109,7 +113,7 @@
 }
 
 .nav-menu {
-    background-color: #060b26;
+    background-color: #1F3675;
     width: 220px;
     height: 100%;
     display: flex;
