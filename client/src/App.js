@@ -10,6 +10,8 @@ import Events from './pages/Events';
 import Grades from './pages/Grades'; 
 import Settings from './pages/Settings';
 import Tasks from './pages/Tasks';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path='/grades' element={<Grades />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/tasks' element={<Tasks />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
         </Routes>
       </Router>
     </>

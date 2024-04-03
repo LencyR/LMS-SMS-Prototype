@@ -4,12 +4,18 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../index.css';
 import { IconContext } from 'react-icons';
+import { useLogout } from '../hooks/useLogout';
 
 function Navbar() {
     const [sidebar, setSidebar] = useState(true);
     const [dropdownActive, setDropdownActive] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     const showDropdown = () => setDropdownActive(!dropdownActive);
+
+    const { logout } = useLogout()
+    const handleClick = () => {
+        logout()
+    }
 
     return (
         <>
@@ -35,9 +41,9 @@ function Navbar() {
                         <div className={`dropdown-menu-container ${dropdownActive ? 'show' : ''}`}>
                             {dropdownActive && (
                                 <ul className='dropdown-menu'>
-                                    <li><a href="">Profile</a></li>
-                                    <li><a href="">Setting</a></li>
-                                    <li><a href="">Log Out</a></li>
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="#">Setting</a></li>
+                                    <li><a href="#">Log Out</a></li>
                                 </ul>
                             )}
                         </div>
@@ -46,14 +52,25 @@ function Navbar() {
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                     <ul className='nav-menu-items' onClick={showSidebar} style={{ marginTop: '70px' }}>
                         {SidebarData.map((item, index) => {
-                            return (
-                                <li key={index} className={item.cName}>
-                                    <Link to={item.path}>
-                                        {item.icon}
-                                        <span>{item.title}</span>
-                                    </Link>
-                                </li>
-                            );
+                            if (item.title === 'Logout') {
+                                return (
+                                    <li key={index} className={item.cName} onClick={handleClick}>
+                                        <Link to={item.path}>
+                                            {item.icon}
+                                            <span>{item.title}</span>
+                                        </Link>
+                                    </li>
+                                );
+                            } else {
+                                return (
+                                    <li key={index} className={item.cName}>
+                                        <Link to={item.path}>
+                                            {item.icon}
+                                            <span>{item.title}</span>
+                                        </Link>
+                                    </li>
+                                );
+                            }
                         })}
                     </ul>
                 </nav>

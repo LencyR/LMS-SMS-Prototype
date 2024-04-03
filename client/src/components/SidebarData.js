@@ -1,5 +1,6 @@
 import React from 'react'
-import {FaBook, FaCalendarAlt, FaCheckSquare, FaClipboardList, FaCog, FaDoorClosed, FaFileAlt, FaHome} from 'react-icons/fa'
+import {FaBook, FaCalendarAlt, FaCheckSquare, FaClipboardList, FaCog, FaFileAlt, FaHome} from 'react-icons/fa'
+import { UilBooks, UilSignout } from '@iconscout/react-unicons'
 
 export const SidebarData = [
     {
@@ -17,7 +18,7 @@ export const SidebarData = [
     {
         title: 'Courses',
         path: '/courses',
-        icon: <FaBook />,
+        icon: <UilBooks />,
         cName: 'nav-text'
     },
     {
@@ -35,13 +36,19 @@ export const SidebarData = [
     {
         title: 'Classes',
         path: '/classes',
-        icon: <FaDoorClosed />,
+        icon: <FaBook />,
         cName: 'nav-text'
     },
     {
         title: 'Grades',
         path: '/grades',
         icon: <FaCheckSquare />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Logout',
+        path: '/login',
+        icon: <UilSignout />,
         cName: 'nav-text'
     },
     {

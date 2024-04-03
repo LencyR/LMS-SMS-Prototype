@@ -26,6 +26,24 @@ const getStudent = async (req, res) => {
 const createStudent = async (req, res) => {
     const {name, age, email, address} = req.body
 
+    let emptyFields = []
+
+    if(!name) {
+        emptyFields.push('name')
+    }
+    if(!age) {
+        emptyFields.push('age')
+    }
+    if(!email) {
+        emptyFields.push('email')
+    }
+    if(!address) {
+        emptyFields.push('address')
+    }
+    if(emptyFields.length > 0) {
+        return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
+    }
+
     try {
         const student = await Student.create({ name, age, email, address })
         res.status(200).json(student)

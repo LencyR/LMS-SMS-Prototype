@@ -18,7 +18,7 @@ function Home() {
     }
 
     fetchStudents()
-  }, [])
+  }, [dispatch])
 
   return (
     <div className='home'>

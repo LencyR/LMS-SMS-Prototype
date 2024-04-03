@@ -8,6 +8,7 @@ const StudentForm = () => {
     const [email, setEmail] = useState('')
     const [address, setAddress] = useState('')
     const [error, setError] = useState(null)
+    const [emptyFields, setEmptyFields] = useState([])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -24,6 +25,7 @@ const StudentForm = () => {
 
         if (!response.ok) {
             setError(json.error)
+            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
             setError(null)
@@ -31,6 +33,7 @@ const StudentForm = () => {
             setAge('')
             setEmail('')
             setAddress('')
+            setEmptyFields([])
             console.log('new student added:', json)
             dispatch({type: 'CREATE_STUDENT', payload: json})
         }
@@ -41,31 +44,35 @@ const StudentForm = () => {
             <h3>Add a New Student</h3>
             
             <label>Student Name:</label>
-            <input className="form-input"
+            <input
                 type="text"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                className={emptyFields.includes('name') ? 'error' : ''}
             />
 
             <label>Student Age:</label>
-            <input className="form-input"
+            <input
                 type="number"
                 onChange={(e) => setAge(e.target.value)}
                 value={age}
+                className={emptyFields.includes('age') ? 'error' : ''}
             />
             
             <label>Student Email:</label>
-            <input className="form-input"
-                type="text"
+            <input
+                type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
+                className={emptyFields.includes('email') ? 'error' : ''}
             />
             
             <label>Student Address:</label>
-            <input className="form-input"
+            <input
                 type="text"
                 onChange={(e) => setAddress(e.target.value)}
                 value={address}
+                className={emptyFields.includes('address') ? 'error' : ''}
             />
 
             <button>Add Student</button>
