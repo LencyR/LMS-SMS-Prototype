@@ -10,30 +10,122 @@
   font-family: 'Lato', sans-serif;
 }
 
+.linebreak {
+    position: relative;
+    width: 100%;
+    height: 0.4em;
+}
+
+.linebreak::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+}
+
+
 body {
     background-color: #E7E7E7;
 }
 
 .home {
-  display: inline-block;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
   position: relative;
-  min-height: calc(100vh - 70px);
-  top: 70px;
-  left: 80px;
+  /* min-height: calc(100vh - 10px); */
+  /* top: 10px; */
+  left: 10px;
   transition: all 0.5s ease;
-  width: calc(100% - 80px);
+  width: calc(100% - 10px);
   padding: 1rem;
 }
 
-.attendance,
-.classes,
-.courses,
-.events,
-.grades,
-.settings,
+.attendance {
+    position: relative;
+    /* min-height: calc(100vh - 10px); */
+    top: 70px;
+    left: 10px;
+    transition: all 0.5s ease;
+    width: calc(100% - 10px);
+    padding: 1rem;
+}
+
 .tasks {
+    position: relative;
+    /* min-height: calc(100vh - 10px); */
+    top: 70px;
+    left: 10px;
+    transition: all 0.5s ease;
+    width: calc(100% - 10px);
+    padding: 1rem;
+}
+
+.events {
+    position: relative;
+    /* min-height: calc(100vh - 10px); */
+    top: 70px;
+    left: 10px;
+    transition: all 0.5s ease;
+    width: calc(100% - 10px);
+    padding: 1rem;
+}
+
+.classes {
+    position: relative;
+    /* min-height: calc(100vh - 10px); */
+    top: 70px;
+    left: 10px;
+    transition: all 0.5s ease;
+    width: calc(100% - 10px);
+    padding: 1rem;
+}
+
+.grades {
+    position: relative;
+    /* min-height: calc(100vh - 10px); */
+    top: 70px;
+    left: 10px;
+    transition: all 0.5s ease;
+    width: calc(100% - 10px);
+    padding: 1rem;
+}
+
+.students-page {
+    display: inline-block;
+    grid-template-columns: 3fr 1fr;
+    gap: 100px;
+    position: relative;
+    min-height: calc(100vh - 70px);
+    top: 70px;
+    left: 80px;
+    transition: all 0.5s ease;
+    width: calc(100% - 80px);
+    padding: 1rem;
+}
+
+.course-page {
+    display: inline-block;
+    grid-template-columns: 3fr 1fr;
+    gap: 100px;
+    position: relative;
+    min-height: calc(100vh - 70px);
+    top: 70px;
+    left: 10px;
+    transition: all 0.5s ease;
+    width: calc(100% - 10px);
+    padding: 1rem;
+}
+
+.login-page {
+    background-image: url('../public/laco-building2.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    background-color: #3d5066;
+    background-blend-mode: multiply;
+}
+
+.settings {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -48,7 +140,7 @@ input[type="password"] {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
-    width: 100%;
+    width: 30%;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
@@ -57,21 +149,66 @@ input[type="password"] {
 
 .navbar {
     background-color: #1F3675;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
     outline: none;
     height: 70px;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
+    min-width: 100%;
     z-index: 3;
     position: fixed;
 }
-  
-.menu-bars {
+
+.navbar ul {
+    min-width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navbar li {
+    height: 50px;
+}
+
+.navbar div {
+    height: 100%;
+    padding-top: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+/* menu bars */
+.navbar li:first-child {
     margin-left: 30px;
     font-size: 1.2rem;
     background: none;
+}
+
+/* website name */
+.navbar li:nth-child(2) {
+    position: relative;
+    margin-left: 15px;
+    margin-right: auto;
+    margin-bottom: 2px;
+    padding: 1rem;
+    color: white;
+}
+
+/* notifiacations */
+.navbar li:nth-child(4) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* user profile */
+.navbar li:nth-child(5) {
+    margin-right: 1.5rem;
+    margin-top: 0.10rem;
+}
+
+.searchbar-container {
+    padding-bottom: 10px;
 }
 
 .searchbar {
@@ -81,14 +218,18 @@ input[type="password"] {
     display: flex;
     align-items: center;
     padding: var(--padding);
-    border-radius: 10px;
+    border-radius: 28px;
     background: #f6f6f6;
-    margin-left: auto;
-    font-size: 1.1rem;
+    transition: box-shadow 0.25s;
+    margin-top: 15px;
 }
 
-.searchbar .searchbar-input {
-    font-size: 17px;
+.searchbar:focus-within {
+    box-shadow: 0 0 2px rgb(18, 76, 222);
+}
+
+.searchbar-input {
+    font-size: 16px;
     font-family: 'Lexend', sans-serif;
     color: #333333;
     margin-left: var(--padding);
@@ -98,18 +239,20 @@ input[type="password"] {
 }
 
 .searchbar-input::placeholder {
-    color: black;
+    color: rgba(0, 0, 0, 0.5);
     font-size: 14px;
+    position: absolute;
+    top: 5px;
 }
 
-.notification {
-    margin-left: 1rem;
-    margin-right: 1rem;
+.search-icon {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-.user-profile {
-    margin-right: 1.5rem;
-    margin-top: 0.10rem;
+.searchbar-container .searchbar {
+    padding-top: 6.5px;
 }
 
 .dropdown-menu-container {
@@ -128,7 +271,7 @@ input[type="password"] {
 
 .nav-menu {
     background-color: #1F3675;
-    width: 220px;
+    width: 260px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -138,7 +281,13 @@ input[type="password"] {
     transition: 850ms;
     z-index: 2;
 }
-  
+
+@media(max-width: 800px) {
+    .hideOnMobile {
+        display: none;
+    }
+}
+
 .nav-menu.active {
     left: 0;
     transition: all 0.5s ease;
@@ -218,16 +367,47 @@ span {
     color: #333;
 }
 
-.website-name {
+.courses-details {
+    background: #fff;
+    border-radius: 4px;
+    margin: 20px auto;
+    padding: 20px;
     position: relative;
-    left: 15px;
-    padding: 1rem;
-    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.nav-menu.active ~ .home {
-    left: 220px;
-    width: calc(100% - 220px);
+.courses-details h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: #1aac83;
+}
+
+.courses-details p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.courses-details span {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 50%;
+    color: #333;
+}
+
+.nav-menu.active ~ .home,
+.nav-menu.active ~ .course-page,
+.nav-menu.active ~ .attendance,
+.nav-menu.active ~ .classes,
+.nav-menu.active ~ .tasks,
+.nav-menu.active ~ .events,
+.nav-menu.active ~ .grades {
+    left: 260px;
+    width: calc(100% - 260px);
 }
 
 label {
@@ -299,16 +479,785 @@ div.error {
 
 form.login, form.signup {
     max-width: 400px;
+    min-height: 450px;
     margin: 0px auto;
     padding: 20px;
     background: #fff;
-    border-radius: 4px;
+    opacity: 0.8;
+    border-radius: 20px;
     gap: 100px;
     position: relative;
-    top: 140px;
-    left: 15px;
+    top: 10px;
+    width: 90%;
+    width: min(90%, 400px);
+}
+
+form.login label,
+form.login .forgot-pass {
+    padding-left: 40px;
+}
+
+form.login .forgot-pass {
+    font-size: 10px;
+    margin-top: -10px;
+}
+
+.forgot-pass a {
+    color: #1F3675;
+    text-decoration: none;
+}
+
+.forgot-pass:hover {
+    text-decoration: underline;
+}
+
+form.login h1 {
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+form.login .input-box {
+    width: 80%;
+    height: 45px;
+    margin: 15px auto;
+    text-align: left;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(25, 25, 25, 0.2);
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 20px 45px 20px 20px;
 }
 
 form.login button {
-    margin-left: 145px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    background: #254dbb;
+    cursor: pointer;
+}
+
+.login-image {
+    background-image: url('../public/laco logo.png');
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: calc(50% - 150px); 
+    transform: translate(0, 100px);
+    width: 300px;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.card-container-second {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: end;
+    margin-top: -656px;
+}
+
+.label-events-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 150px;
+}
+
+.label-events {
+    margin-top: -693px;
+}
+
+.card-container-third {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.card-container-third ul {
+    margin-left: 90px;
+}
+
+.card-container-fourth {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+.card {
+    display: flex;
+    width: 230px;
+    height: fit-content;
+    background-color: #2D4765;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card-second {
+    display: flex;
+    width: 270px;
+    height: fit-content;
+    background-color: #2D4765;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card-third {
+    display: flex;
+    width: 770px;
+    height: fit-content;
+    background-color: #2D4765;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card-fourth {
+    display: flex;
+    width: 300px;
+    height: fit-content;
+    background-color: #2D4765;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* .card img {
+    width: 100%;
+    height: 200px;
+} */
+
+.card-content {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #f7f7f7;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    color: #f7f7f7;
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.card:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-second:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-third:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-fourth:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.label {
+    margin-top: 70px;
+    margin-left: 5px;
+    overflow-x: hidden;
+}
+
+.label h3 {
+    font-size: 18px;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: 200px;
+}
+
+.label h3 span {
+    margin-right: 588px;
+}
+
+.label h3 span a {
+    font-size: 17px;
+}
+
+.label h3 span a:hover {
+    text-decoration: underline;
+}
+
+.label h3 span:nth-child(2) {
+    margin-right: 120px;
+}
+
+.label-courses {
+    font-size: 18px;
+    margin-left: 22px;
+}
+
+.label-courses span a {
+    font-size: 17px;
+    margin-left: 500px;
+}
+
+.label-courses span a:hover {
+    text-decoration: underline;
+}
+
+.classes-grid-container {
+    background: #2D4765;
+    max-width: 1550px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 260px 260px;
+    grid-template-areas: 
+        "c1 c2 c3 c4"
+        "c5 c6 c7 c8";
+    gap: 25px;
+    border-radius: 0 0 10px 10px;
+}
+
+.classes-header {
+    background: #3E6088;
+    border-radius: 10px 10px 0 0;
+    width: 1fr;
+    height: 50px;
+    margin-top: 15px;
+}
+
+.classes-header h3 {
+    color: #E7E7E7;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.classes-grid-container > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.classes-grid-container > div:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.classes-grid-container > div:nth-child(1) {
+    grid-area: c1;
+}
+
+.classes-grid-container div h3 {
+    font-size: 18px;
+    padding: 20px;
+    color: #E7E7E7;
+}
+
+.classes-grid-container div .subject-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.classes-grid-container div p {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+    color: #E7E7E7;
+}
+
+.classes-grid-container > div:nth-child(2) {
+    grid-area: c2;
+}
+
+.classes-grid-container > div:nth-child(3) {
+    grid-area: c3;
+}
+
+.classes-grid-container > div:nth-child(4) {
+    grid-area: c4;
+}
+
+.classes-grid-container > div:nth-child(5) {
+    grid-area: c5;
+}
+
+.classes-grid-container > div:nth-child(6) {
+    grid-area: c6;
+}
+
+.classes-grid-container > div:nth-child(7) {
+    grid-area: c7;
+}
+
+.classes-grid-container > div:nth-child(8) {
+    grid-area: c8;
+}
+
+.attendance-grid-container {
+    background: #2D4765;
+    max-width: 1fr;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px 80px;
+    grid-template-areas: 
+        "c1 c1"
+        "c2 c3";
+    gap: 25px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.attendance-grid-container > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.attendance-grid-container .attendance-number:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-grid-container-second > div:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-grid-container > div:nth-child(1) {
+    grid-area: c1;
+    background: none;
+}
+
+.attendance-grid-container > div:nth-child(2) {
+    grid-area: c2;
+}
+
+.attendance-grid-container > div:nth-child(3) {
+    grid-area: c3;
+}
+
+.attendance-grid-container div h3 {
+    color: #FFF;
+    text-align: left;
+    margin-left: 120px;
+    margin-top: -70px;
+    font-size: 20px;
+}
+
+.attendance-grid-container div .attendance-student-course {
+    color: #FFF;
+    text-align: left;
+    margin-left: 120px;
+}
+
+.attendance-grid-container div h2 {
+    color: #FFF;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.attendance-grid-container div p {
+    color: #FFF;
+    font-size: 20px;
+}
+
+.attendance-grid-container-second {
+    background: #2D4765;
+    max-width: 1fr;
+    padding: 20px 35px 0 35px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 250px;
+    grid-template-areas: 
+        "c1 c1"
+        "c2 c3";
+    gap: 30px;
+    border-radius: 0 0 10px 10px;
+}
+
+.attendance-grid-container-second > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "icon time"
+        "in in-time"
+        "out out-time";
+}
+
+.attendance .attendance-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #2D4765;
+    margin-top: 20px;
+    border-radius: 10px 10px 0 0;
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.attendance .attendance-header h2{
+    color: #FFF;
+    text-align: right;
+    font-size: 20px;
+}
+
+.attendance .attendance-header h3{
+    color: #FFF;
+    font-size: 20px;
+}
+
+.attendance-grid-container-second div h3 {
+    grid-area: icon;
+    margin: 60px 0 0 15px;
+}
+
+.attendance-grid-container-second div .attendance-on-time {
+    grid-area: time;
+    margin: 60px 0 0 15px;
+    border-radius: 30px;
+    width: 80px;
+    background: #41945D;
+    color: #FFF;
+}
+
+.attendance-grid-container-second div .attendance-absent {
+    grid-area: time;
+    margin: 60px 0 0 15px;
+    border-radius: 30px;
+    width: 80px;
+    background: #A57171;
+    color: #FFF;
+}
+
+.attendance-grid-container-second div .attendance-late {
+    grid-area: time;
+    margin: 60px 0 0 15px;
+    border-radius: 30px;
+    width: 80px;
+    background: #888982;
+    color: #FFF;
+}
+
+.attendance-grid-container-second div p:nth-child(3) {
+    grid-area: in;
+    color: #FFF;
+    margin-top: 60px;
+    margin-right: 11px;
+}
+
+.attendance-grid-container-second div p:nth-child(4) {
+    grid-area: in-time;
+    color: #FFF;
+    margin-top: 60px;
+}
+
+.attendance-grid-container-second div p:nth-child(5) {
+    grid-area: out;
+    color: #FFF;
+    margin-top: 20px;
+}
+
+.attendance-grid-container-second div p:nth-child(6) {
+    grid-area: out-time;
+    color: #FFF;
+    margin-top: 20px;
+}
+
+.courses-grid-container {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 0 240px 240px;
+    grid-template-areas: 
+        "header header header"
+        "c1 c2 c3"
+        "c4 c5 c6";
+    gap: 70px;
+    border-radius: 10px;
+    margin-top: -10px;   
+}
+
+.courses-grid-container > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.courses-grid-container header {
+    grid-area: header;
+    font-size: 20px;
+    margin-left: 1px;
+}
+
+.courses-grid-container > div:nth-child(2) {
+    grid-area: c1;
+}
+
+.courses-grid-container > div:nth-child(3) {
+    grid-area: c2;
+}
+
+.courses-grid-container > div:nth-child(4) {
+    grid-area: c3;
+}
+
+.courses-grid-container > div:nth-child(5) {
+    grid-area: c4;
+}
+
+.courses-grid-container > div:nth-child(6) {
+    grid-area: c5;
+}
+
+.courses-grid-container > div:nth-child(7) {
+    grid-area: c6;
+}
+
+.courses-grid-container div img {
+    width: 100%;
+    height: 50%;
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+}
+
+.courses-grid-container div div {
+    background: #2D4765;
+    height: 100%;
+}
+
+.courses-grid-container div h3 {
+    color: #FFF;
+    font-size: 15px;
+    text-align: left;
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.courses-grid-container div p {
+    color: #FFF;
+    font-size: 11px;
+    text-align: left;
+    padding-left: 15px;
+}
+
+.tasks-grid-container {
+    background: #2D4765;
+    padding: 25px 60px 25px 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 108px;
+    grid-template-areas: 
+        "c1 c2 c3";
+    grid-column-gap: 120px;
+    grid-row-gap: 50px;
+    border-radius: 0 0 10px 10px;
+    margin-top: -10px;   
+}
+
+.tasks-grid-container > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tasks header {
+    background: #3E6088;
+    border-radius: 10px 10px 0 0;
+    width: 1fr;
+    height: 60px;
+    margin-top: 15px;
+}
+
+.tasks header h2 {
+    color: #E7E7E7;
+    font-size: 18px;
+    padding: 12px 0 0 10px;
+    margin-left: 10px;
+}
+
+.tasks-grid-container > div:nth-child(1) {
+    grid-area: c1;
+}
+
+.tasks-grid-container > div:nth-child(2) {
+    grid-area: c2;
+}
+
+.tasks-grid-container > div:nth-child(3) {
+    grid-area: c3;
+}
+
+.tasks-grid-container div h3 {
+    color: #FFF;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.tasks-grid-container > div:hover {
+    transform: scale(1.02); 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.events-grid-container {
+    background: #2D4765;
+    padding: 25px 60px 25px 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 220px;
+    grid-template-areas: 
+        "c1 c2 c3";
+    grid-column-gap: 80px;
+    grid-row-gap: 50px;
+    border-radius: 0 0 10px 10px;
+    margin-top: -10px;   
+}
+
+.events-grid-container-second {
+    background: #2D4765;
+    padding: 25px 60px 25px 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 200px;
+    grid-template-areas: 
+        "c1 c2 c3";
+    grid-column-gap: 80px;
+    grid-row-gap: 50px;
+    border-radius: 0 0 10px 10px;
+    margin-top: -10px;   
+}
+
+.events-grid-container > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.events-grid-container-second > div {
+    background: #5A93B4;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.events header {
+    background: #3E6088;
+    border-radius: 10px 10px 0 0;
+    width: 1fr;
+    height: 70px;
+    margin-top: 15px;
+}
+
+.events header h2 {
+    color: #E7E7E7;
+    font-size: 18px;
+    padding: 12px 0 0 10px;
+    margin-left: 10px;
+}
+
+.events header h3 {
+    margin-left: 200px;
+    margin-top: -27px;
+}
+
+.events header h4 {
+    margin-left: 190px;
+    margin-top: -27px;
+}
+
+.events-grid-container div h3 {
+    color: #FFF;
+    padding-top: 120px;
+    font-size: 21px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.events-grid-container div p {
+    color: #FFF;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.events-grid-container-second div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
+.events-grid-container-second h1 {
+    color: #FFF;
+    font-size: 28px;
+}
+
+.events-grid-container-second h3 {
+    color: #FFF;
+    font-size: 21px;
+    text-align: left;
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.events-grid-container-second h5 {
+    color: #FFF;
+    padding-left: 10px;
+    padding-top: 6px;
+}
+
+.events-grid-container-second p {
+    color: #FFF;
+    font-size: 14px;
+    padding-top: 2px;
+    text-align: left;
+    padding-left: 30px;
 }

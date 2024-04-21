@@ -21,35 +21,53 @@ function Navbar() {
         <>
             <IconContext.Provider value={{ color: '#fff '}}>
                 <div className="navbar">
-                    <Link to='#' className="menu-bars">
-                        <FaIcons.FaBars onClick={showSidebar} />
-                    </Link>
-                    <div className='website-name'>
-                        <h4>OnlineLearnHub</h4>
-                    </div>
-                    <div className='searchbar'>
-                        <FaIcons.FaSearch style={{ color: 'black', fontSize: 14 }} />
-                        <input className='searchbar-input' type='search' placeholder='Search...'/>
-                    </div>
-                    <div className='notification'>
-                        <FaIcons.FaBell />
-                    </div>
-                    <div className='user-profile'>
-                        <button onClick={showDropdown}>
-                            <FaIcons.FaUserCircle style={{ fontSize: 25 }} />
-                        </button>
-                        <div className={`dropdown-menu-container ${dropdownActive ? 'show' : ''}`}>
-                            {dropdownActive && (
-                                <ul className='dropdown-menu'>
-                                    <li><a href="#">Profile</a></li>
-                                    <li><a href="#">Setting</a></li>
-                                    <li><a href="#">Log Out</a></li>
-                                </ul>
-                            )}
-                        </div>
-                    </div>
+                    <ul>
+                        <li>
+                            <div>
+                                <Link to='#'>
+                                    <FaIcons.FaBars onClick={showSidebar} />
+                                </Link>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <h4>OnlineLearnHub</h4>
+                            </div>
+                        </li>
+                        <li>
+                            <div className='searchbar-container'>
+                                <form>
+                                    <div className='searchbar'>
+                                        <span className='search-icon material-symbols-outlined'>search</span>
+                                        <input className='searchbar-input' type='search' placeholder='Search...'/>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <FaIcons.FaBell />
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <button onClick={showDropdown}>
+                                    <FaIcons.FaUserCircle style={{ fontSize: 25 }} />
+                                </button>
+                                <div className={`dropdown-menu-container ${dropdownActive ? 'show' : ''}`}>
+                                    {dropdownActive && (
+                                        <ul className='dropdown-menu'>
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="#">Setting</a></li>
+                                            <li><a href="#">Log Out</a></li>
+                                        </ul>
+                                    )}
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+                <nav className={sidebar ? 'hideOnMobile nav-menu active' : 'nav-menu'}>
                     <ul className='nav-menu-items' onClick={showSidebar} style={{ marginTop: '70px' }}>
                         {SidebarData.map((item, index) => {
                             if (item.title === 'Logout') {

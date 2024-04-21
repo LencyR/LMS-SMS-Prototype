@@ -18,6 +18,10 @@ const studentSchema = new Schema({
     address: {
         type: String,
         required: true
+    },
+    user_id: {
+        type: String,
+        required: true
     }
 }, { timestamps: true });
 

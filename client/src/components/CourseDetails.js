@@ -1,18 +1,18 @@
-import { useStudentsContext } from '../hooks/useStudentsContext'
+import { useCoursesContext } from '../hooks/useCoursesContext'
 import { useAuthContext } from '../hooks/useAuthContext'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import {FaTrash} from 'react-icons/fa'
 
-const StudentDetails = ({ student }) => {
-    const { dispatch } = useStudentsContext()
-    const { user } = useAuthContext()
+const CourseDetails = ({ course }) => {
+    const { dispatch } = useCoursesContext();
+    const { user } = useAuthContext();
 
     const handleClick = async () => {
         if (!user) {
             return
         }
 
-        const response = await fetch('/api/students/' + student._id, {
+        const response = await fetch('/api/courses/' + course._id, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -21,20 +21,19 @@ const StudentDetails = ({ student }) => {
         const json = await response.json()
 
         if (response.ok) {
-            dispatch({type: 'DELETE_STUDENT', payload: json})
+            dispatch({type: 'DELETE_COURSE', payload: json})
         }
     }
-
+    
     return (
         <tr>
-            <td>{student.name}</td>
-            <td>{student.age}</td>
-            <td>{student.email}</td>
-            <td>{student.address}</td>
-            <td>{formatDistanceToNow(new Date(student.createdAt), { addSuffix: true })}</td>
+            <td>{course.title}</td>
+            <td>{course.description}</td>
+            <td>{course.user_id}</td>
+            <td>{formatDistanceToNow(new Date(course.createdAt), { addSuffix: true })}</td>
             <td><span className='delete-button' onClick={handleClick}><FaTrash style={{ position: 'relative', left: '-10px', bottom: '10px'}}/></span></td>
         </tr>
     )
 }
 
-export default StudentDetails
+export default CourseDetails;

@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useStudentsContext } from '../hooks/useStudentsContext'
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const StudentForm = () => {
     const { dispatch } = useStudentsContext()
+    const { user } = useAuthContext()
+
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
     const [email, setEmail] = useState('')
@@ -12,13 +15,25 @@ const StudentForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        if (!user) {
+            setError('You must be logged in')
+            return
+        }
+
+        if (user.role !== 'admin') {
+            setError('Only admin can add students.');
+            return;
+        }
+
         const student = {name, age, email, address}
 
         const response = await fetch('/api/students', {
             method: 'POST',
             body: JSON.stringify(student),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
             }
         })
         const json = await response.json()

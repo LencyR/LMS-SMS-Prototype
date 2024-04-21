@@ -2,9 +2,18 @@ const Student = require('../models/StudentModel')
 const mongoose = require('mongoose')
 
 const getStudents = async (req, res) => {
-    const students = await Student.find({}).sort({createdAt: -1})
+    const { role } = req.user;
 
-    res.status(200).json(students)
+    if (role === 'admin') {
+        // If the requester is an admin, fetch all students
+        const students = await Student.find().sort({ createdAt: -1 });
+        res.status(200).json(students);
+    } else {
+        // For non-admin users, fetch only students associated with their user_id
+        const user_id = req.user._id;
+        const students = await Student.find({ user_id }).sort({ createdAt: -1 });
+        res.status(200).json(students);
+    }
 }
 
 const getStudent = async (req, res) => {
@@ -45,7 +54,8 @@ const createStudent = async (req, res) => {
     }
 
     try {
-        const student = await Student.create({ name, age, email, address })
+        const user_id = req.user._id
+        const student = await Student.create({ name, age, email, address, user_id })
         res.status(200).json(student)
     } catch (error) {
         res.status(400).json({ error: error.message })
