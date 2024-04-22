@@ -185,8 +185,17 @@ input[type="password"] {
     background: none;
 }
 
-/* website name */
 .navbar li:nth-child(2) {
+    position: relative;
+    margin-left: 10px;
+    margin-right: -30px;
+    margin-bottom: 2px;
+    padding: 1rem;
+    color: white;   
+}
+
+/* website name */
+.navbar li:nth-child(3) {
     position: relative;
     margin-left: 15px;
     margin-right: auto;
@@ -196,15 +205,21 @@ input[type="password"] {
 }
 
 /* notifiacations */
-.navbar li:nth-child(4) {
+.navbar li:nth-child(5) {
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
 /* user profile */
-.navbar li:nth-child(5) {
+.navbar li:nth-child(6) {
     margin-right: 1.5rem;
     margin-top: 0.10rem;
+}
+
+.navbar ul li .navbar-logo {
+    width: 70px;
+    height: 70px;
+    padding-bottom: 40px;
 }
 
 .searchbar-container {
@@ -741,7 +756,7 @@ form.login button {
 
 .classes-grid-container {
     background: #2D4765;
-    max-width: 1550px;
+    max-width: 1fr;
     padding: 25px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -923,6 +938,7 @@ form.login button {
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 
         "icon time"
+        "date date"
         "in in-time"
         "out out-time";
 }
@@ -951,12 +967,18 @@ form.login button {
 
 .attendance-grid-container-second div h3 {
     grid-area: icon;
-    margin: 60px 0 0 15px;
+    margin: 23px 0 0 30px;
+}
+
+.attendance-grid-container-second div h2 {
+    grid-area: date;
+    margin: 23px 0 0 30px;
+    color: #FFF;
 }
 
 .attendance-grid-container-second div .attendance-on-time {
     grid-area: time;
-    margin: 60px 0 0 15px;
+    margin: 20px 5px 30px 30px;
     border-radius: 30px;
     width: 80px;
     background: #41945D;
@@ -965,7 +987,7 @@ form.login button {
 
 .attendance-grid-container-second div .attendance-absent {
     grid-area: time;
-    margin: 60px 0 0 15px;
+    margin: 20px 5px 30px 30px;
     border-radius: 30px;
     width: 80px;
     background: #A57171;
@@ -974,43 +996,44 @@ form.login button {
 
 .attendance-grid-container-second div .attendance-late {
     grid-area: time;
-    margin: 60px 0 0 15px;
+    margin: 20px 5px 30px 30px;
     border-radius: 30px;
     width: 80px;
     background: #888982;
     color: #FFF;
 }
 
-.attendance-grid-container-second div p:nth-child(3) {
+.attendance-grid-container-second div p:nth-child(4) {
     grid-area: in;
     color: #FFF;
-    margin-top: 60px;
-    margin-right: 11px;
-}
-
-.attendance-grid-container-second div p:nth-child(4) {
-    grid-area: in-time;
-    color: #FFF;
-    margin-top: 60px;
+    margin-top: 10px;
+    margin-right: 5px;
 }
 
 .attendance-grid-container-second div p:nth-child(5) {
-    grid-area: out;
+    grid-area: in-time;
     color: #FFF;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .attendance-grid-container-second div p:nth-child(6) {
+    grid-area: out;
+    color: #FFF;
+    margin-bottom: 20px;
+    margin-left: 6px;
+}
+
+.attendance-grid-container-second div p:nth-child(7) {
     grid-area: out-time;
     color: #FFF;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .courses-grid-container {
     padding: 25px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 0 240px 240px;
+    grid-template-rows: 0 240px 240px 240px;
     grid-template-areas: 
         "header header header"
         "c1 c2 c3"

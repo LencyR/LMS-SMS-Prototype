@@ -30,6 +30,7 @@ function Attendance() {
           <div>
             <h3><FaClock style={{ fontSize: 25}}/></h3>
             <span className='attendance-on-time'>On Time</span>
+            <h2>April 1, 2024</h2>
             <p>Time in:</p>
             <p>7:20</p>
             <p>Time out:</p>
@@ -38,6 +39,7 @@ function Attendance() {
           <div>
             <h3><FaClock style={{ fontSize: 25}}/></h3>
             <span className='attendance-on-time'>On Time</span>
+            <h2>April 2, 2024</h2>
             <p>Time in:</p>
             <p>7:20</p>
             <p>Time out:</p>
@@ -46,6 +48,7 @@ function Attendance() {
           <div>
             <h3><FaClock style={{ fontSize: 25}}/></h3>
             <span className='attendance-absent'>Absent</span>
+            <h2>April 3, 2024</h2>
             <p>Time in:</p>
             <p>----</p>
             <p>Time out:</p>
@@ -54,6 +57,7 @@ function Attendance() {
           <div>
             <h3><FaClock style={{ fontSize: 25}}/></h3>
             <span className='attendance-on-time'>On Time</span>
+            <h2>April 4, 2024</h2>
             <p>Time in:</p>
             <p>7:20</p>
             <p>Time out:</p>
@@ -62,6 +66,7 @@ function Attendance() {
           <div>
             <h3><FaClock style={{ fontSize: 25}}/></h3>
             <span className='attendance-late'>Late</span>
+            <h2>April 5, 2024</h2>
             <p>Time in:</p>
             <p>7:40</p>
             <p>Time out:</p>

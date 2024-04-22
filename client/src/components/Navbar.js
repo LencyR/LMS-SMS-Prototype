@@ -25,8 +25,13 @@ function Navbar() {
                         <li>
                             <div>
                                 <Link to='#'>
-                                    <FaIcons.FaBars onClick={showSidebar} />
+                                    <FaIcons.FaBars />
                                 </Link>
+                            </div>
+                        </li>
+                        <li>
+                            <div className='navbar-logo'>
+                                <img src="/laco-logo.png" alt="laco-logo" /> 
                             </div>
                         </li>
                         <li>
@@ -68,7 +73,7 @@ function Navbar() {
                     </ul>
                 </div>
                 <nav className={sidebar ? 'hideOnMobile nav-menu active' : 'nav-menu'}>
-                    <ul className='nav-menu-items' onClick={showSidebar} style={{ marginTop: '70px' }}>
+                    <ul className='nav-menu-items' style={{ marginTop: '70px' }}>
                         {SidebarData.map((item, index) => {
                             if (item.title === 'Logout') {
                                 return (
