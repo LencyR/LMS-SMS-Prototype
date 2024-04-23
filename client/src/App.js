@@ -17,6 +17,7 @@ import Signup from './pages/Signup';
 import Students from './pages/Students';
 import TeacherDashboard from './pages/TeacherDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import DarkMode from './components/DarkMode';
 
 function App() {
   const { user } = useAuthContext()

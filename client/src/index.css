@@ -3,6 +3,18 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
+:root {
+    --body_background: #E7E7E7;
+    --body_color: #282c34;
+    --link_color: navy;
+}
+
+[data-theme="dark"] {
+    --body_background: #282c34;
+    --body_color: #E7E7E7;
+    --link_color: cyan;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,7 +38,8 @@
 
 
 body {
-    background-color: #E7E7E7;
+    background-color: var(--body_background);
+    color: var(--body_color);
 }
 
 .home {
@@ -183,6 +196,7 @@ input[type="password"] {
     margin-left: 30px;
     font-size: 1.2rem;
     background: none;
+    margin-top: 2px;
 }
 
 .navbar li:nth-child(2) {
@@ -197,21 +211,28 @@ input[type="password"] {
 /* website name */
 .navbar li:nth-child(3) {
     position: relative;
-    margin-left: 15px;
+    margin-left: 10px;
     margin-right: auto;
-    margin-bottom: 2px;
+    margin-top: 2px;
     padding: 1rem;
     color: white;
 }
 
-/* notifiacations */
+/* notifications */
 .navbar li:nth-child(5) {
+    /* margin-left: 1rem; */
+}
+
+.navbar li:nth-child(6) {
+    margin-left: 1rem;
+}
+.navbar li:nth-child(7) {
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
 /* user profile */
-.navbar li:nth-child(6) {
+.navbar li:nth-child(8) {
     margin-right: 1.5rem;
     margin-top: 0.10rem;
 }
@@ -220,6 +241,7 @@ input[type="password"] {
     width: 70px;
     height: 70px;
     padding-bottom: 40px;
+    margin-left: -10px;
 }
 
 .searchbar-container {
@@ -297,9 +319,32 @@ input[type="password"] {
     z-index: 2;
 }
 
-@media(max-width: 800px) {
-    .hideOnMobile {
+.nav-menu-items li:nth-child(1) {
+    margin-top: 30px;
+}
+
+.nav-menu-items li:nth-child(2) {
+    margin-left: -15px;
+}
+
+.nav-menu-items svg:nth-child(2) {
+    color: #009879;
+}
+
+.nav-menu-items li:nth-child(8) {
+    margin-top: 70px;
+}
+
+.nav-menu-items li:nth-child(9) {
+    margin-left: 3.5px;
+}
+
+@media (min-width: 800px) {
+    .bars-icon-container svg {
         display: none;
+    }
+    .navbar li:first-child {
+        margin-left: 1px;
     }
 }
 

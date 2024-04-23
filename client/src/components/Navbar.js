@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as FaIcons from 'react-icons/fa';
+import { MessageFilled } from '@ant-design/icons'
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import '../index.css';
 import { IconContext } from 'react-icons';
 import { useLogout } from '../hooks/useLogout';
+import DarkMode from './DarkMode';
 
 function Navbar() {
     const [sidebar, setSidebar] = useState(true);
@@ -17,14 +19,30 @@ function Navbar() {
         logout()
     }
 
+    useEffect(() => {
+        function handleResize() {
+            if (window.innerWidth <= 800) {
+                setSidebar(false);
+            } else {
+                setSidebar(true);
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
         <>
-            <IconContext.Provider value={{ color: '#fff '}}>
+            <IconContext.Provider value={''}>
                 <div className="navbar">
                     <ul>
                         <li>
-                            <div>
-                                <Link to='#'>
+                            <div className='bars-icon-container'>
+                                <Link to='#' onClick={showSidebar}>
                                     <FaIcons.FaBars />
                                 </Link>
                             </div>
@@ -51,7 +69,17 @@ function Navbar() {
                         </li>
                         <li>
                             <div>
+                                <MessageFilled />
+                            </div>
+                        </li>
+                        <li>
+                            <div>
                                 <FaIcons.FaBell />
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <DarkMode />
                             </div>
                         </li>
                         <li>

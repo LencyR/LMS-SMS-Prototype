@@ -1,18 +1,19 @@
 import React from 'react'
 import {FaBook, FaCalendarAlt, FaCheckSquare, FaClipboardList, FaCog, FaFileAlt, FaHome} from 'react-icons/fa'
 import { UilBooks, UilSignout } from '@iconscout/react-unicons'
+import { IdcardOutlined } from '@ant-design/icons'
 
 export const SidebarData = [
     {
         title: 'Home',
         path: '/',
-        icon: <FaHome />,
+        icon: <FaHome style={{fontSize: 21}} />,
         cName: 'nav-text'
     },
     {
         title: 'Attendance',
         path: '/attendance',
-        icon: <FaClipboardList />,
+        icon: <IdcardOutlined style={{fontSize: 21}}/>,
         cName: 'nav-text'
     },
     {
