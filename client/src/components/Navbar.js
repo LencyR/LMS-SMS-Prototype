@@ -11,8 +11,12 @@ import DarkMode from './DarkMode';
 function Navbar() {
     const [sidebar, setSidebar] = useState(true);
     const [dropdownActive, setDropdownActive] = useState(false);
+    const [notifDropdownActive, setNotifDropdownActive] = useState(false);
+    const [messageDropdownActive, setMessageDropdownActive] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     const showDropdown = () => setDropdownActive(!dropdownActive);
+    const showNotifDropdwon = () => setNotifDropdownActive(!notifDropdownActive);
+    const showMessageDropdwon = () => setMessageDropdownActive(!messageDropdownActive);
 
     const { logout } = useLogout()
     const handleClick = () => {
@@ -69,12 +73,46 @@ function Navbar() {
                         </li>
                         <li>
                             <div>
-                                <MessageFilled />
+                                <button onClick={showMessageDropdwon}>
+                                    <MessageFilled style={{ fontSize: 19, color: messageDropdownActive ? '#1a83ff' : 'inherit' }} />
+                                </button>
+                                <div className={`dropdown-menu-container ${messageDropdownActive ? 'show' : ''}`}>
+                                    {messageDropdownActive && (
+                                        <div className="dropdown-grid-container">
+                                            <div>
+                                                <FaIcons.FaUserCircle style={{ fontSize: 35 }} />
+                                            </div>
+                                            <div>
+                                                <h1>Nuqui, Jonawill</h1>
+                                            </div>
+                                            <div>
+                                                <h2>See all Profiles</h2>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </li>
                         <li>
                             <div>
-                                <FaIcons.FaBell />
+                                <button onClick={showNotifDropdwon}>
+                                    <FaIcons.FaBell style={{ fontSize: 19, color: notifDropdownActive ? '#1a83ff' : 'inherit' }}/>
+                                </button>
+                                <div className={`dropdown-menu-container ${notifDropdownActive ? 'show' : ''}`}>
+                                    {notifDropdownActive && (
+                                        <div className="dropdown-grid-container">
+                                            <div>
+                                                <FaIcons.FaUserCircle style={{ fontSize: 35 }} />
+                                            </div>
+                                            <div>
+                                                <h1>Nuqui, Jonawill</h1>
+                                            </div>
+                                            <div>
+                                                <h2>See all Profiles</h2>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </li>
                         <li>
@@ -85,15 +123,21 @@ function Navbar() {
                         <li>
                             <div>
                                 <button onClick={showDropdown}>
-                                    <FaIcons.FaUserCircle style={{ fontSize: 25 }} />
+                                    <FaIcons.FaUserCircle style={{ fontSize: 35, color: dropdownActive ? '#1a83ff' : 'inherit' }} />
                                 </button>
                                 <div className={`dropdown-menu-container ${dropdownActive ? 'show' : ''}`}>
                                     {dropdownActive && (
-                                        <ul className='dropdown-menu'>
-                                            <li><a href="#">Profile</a></li>
-                                            <li><a href="#">Setting</a></li>
-                                            <li><a href="#">Log Out</a></li>
-                                        </ul>
+                                        <div className="dropdown-grid-container">
+                                            <div>
+                                                <FaIcons.FaUserCircle style={{ fontSize: 35 }} />
+                                            </div>
+                                            <div>
+                                                <h1>Nuqui, Jonawill</h1>
+                                            </div>
+                                            <div>
+                                                <h2>See all Profiles</h2>
+                                            </div>
+                                        </div>
                                     )}
                                 </div>
                             </div>
